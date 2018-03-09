@@ -7,11 +7,11 @@ define(module, function(exports, require) {
 
   exports({
 
-    client: function(options) {
+    create_client: function(options) {
       return pool.create_client(options);
     },
 
-    notifier: function(options) {
+    create_notifier: function(options) {
       return notifier.create(options);
     },
 

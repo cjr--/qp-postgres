@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/cjr--/qp-postgres/issues"
   },
-  "homepage": "https://github.com/cjr--/qp-postgres#readme"
+  "homepage": "https://github.com/cjr--/qp-postgres#readme",
+  "dependencies": {
+    "pg": "^7.4.1"
+  }
 }
