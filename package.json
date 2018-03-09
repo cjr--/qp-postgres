@@ -1,0 +1,25 @@
+{
+  "name": "qp-postgres",
+  "version": "1.0.1",
+  "description": "postgres utilities",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjr--/qp-postgres.git"
+  },
+  "keywords": [
+    "postgres"
+  ],
+  "author": "CJR",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cjr--/qp-postgres/issues"
+  },
+  "homepage": "https://github.com/cjr--/qp-postgres#readme"
+}
