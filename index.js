@@ -5,6 +5,12 @@ define(module, function(exports, require) {
   var connection = require('./lib/connection');
   var notifier = require('./lib/event_notifier');
 
+  var default_options = {
+    statements: false,
+    values: false,
+    errors: true
+  };
+
   exports({
 
     create_client: function(options) {
@@ -16,13 +22,17 @@ define(module, function(exports, require) {
     },
 
     open: function(options) {
+      qp.assign_own(default_options, options);
       return pool.open(options);
     },
 
     connect: function(handler) {
       pool.connect((error, db_connection, close_connection) => {
-        if (error) handler(error);
-        else handler(null, connection.create({ connection: db_connection }), close_connection);
+        if (error) {
+          handler(error);
+        } else {
+          handler(null, connection.create(qp.options({ connection: db_connection }, default_options)), close_connection);
+        }
       });
     },
 
