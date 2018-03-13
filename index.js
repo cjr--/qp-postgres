@@ -1,14 +1,15 @@
 define(module, function(exports, require) {
 
   var qp = require('qp-utility');
+  var log = require('qp-library/log');
   var pool = require('./lib/connection_pool');
   var connection = require('./lib/connection');
   var notifier = require('./lib/event_notifier');
 
   var default_options = {
-    statements: false,
-    values: false,
-    errors: true
+    log_statements: false,
+    log_values: false,
+    log_errors: true
   };
 
   exports({
@@ -29,6 +30,7 @@ define(module, function(exports, require) {
     connect: function(handler) {
       pool.connect((error, db_connection, close_connection) => {
         if (error) {
+          if (default_options.log_errors) log(error);
           handler(error);
         } else {
           handler(null, connection.create(qp.options({ connection: db_connection }, default_options)), close_connection);
