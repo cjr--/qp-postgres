@@ -7,9 +7,10 @@ define(module, function(exports, require) {
   var notifier = require('./lib/event_notifier');
 
   var default_options = {
+    log: false,
     log_statements: false,
     log_values: false,
-    log_errors: true
+    log_errors: false
   };
 
   exports({
@@ -23,6 +24,7 @@ define(module, function(exports, require) {
     },
 
     open: function(options) {
+      if (options.log) options.log_statement = options.log_values = options.log_errors = true;
       qp.assign_own(default_options, options);
       return pool.open(options);
     },
