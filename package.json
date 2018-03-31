@@ -1,6 +1,6 @@
 {
   "name": "qp-postgres",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "postgres utilities",
   "main": "index.js",
   "directories": {
