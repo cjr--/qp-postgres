@@ -10,7 +10,8 @@ define(module, function(exports, require) {
     log_all: false,
     log_statements: false,
     log_values: false,
-    log_errors: false
+    log_errors: false,
+    log_pool: false
   };
 
   exports({
@@ -24,7 +25,7 @@ define(module, function(exports, require) {
     },
 
     open: function(options) {
-      if (options.log_all) options.log_statements = options.log_values = options.log_errors = true;
+      if (options.log_all) options.log_statements = options.log_values = options.log_errors = options.log_pool = true;
       qp.assign_own(default_options, options);
       return pool.open(options);
     },
