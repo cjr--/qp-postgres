@@ -30,13 +30,15 @@ define(module, function(exports, require) {
       return pool.open(options);
     },
 
-    connect: function(handler) {
+    connect: function(options, handler) {
       pool.connect((error, db_connection, close_connection) => {
         if (error) {
           if (default_options.log_errors) log(error);
           handler(error);
         } else {
-          handler(null, connection.create(qp.options({ connection: db_connection }, default_options)), close_connection);
+          options = qp.options(options, { auto_transaction: false });
+          var config = qp.options({ connection: db_connection, auto_transaction: options.auto_transaction }, default_options);
+          handler(null, connection.create(config, close_connection));
         }
       });
     },
