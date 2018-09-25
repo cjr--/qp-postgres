@@ -38,7 +38,7 @@ define(module, function(exports, require) {
         } else {
           options = qp.options(options, { auto_transaction: false });
           var config = qp.options({ connection: db_connection, auto_transaction: options.auto_transaction }, default_options);
-          handler(null, connection.create(config, close_connection));
+          handler(null, connection.create(config));
         }
       });
     },
