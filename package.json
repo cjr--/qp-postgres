@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/cjr--/qp-postgres#readme",
   "dependencies": {
-    "pg": "^7.11.0",
-    "pg-cursor": "^2.0.0",
+    "pg": "^8.3.0",
+    "pg-cursor": "^2.3.0",
     "qp-define": "*",
     "qp-library": "^2.1.45",
     "qp-utility": "^1.4.65"
